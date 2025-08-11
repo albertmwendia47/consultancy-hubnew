@@ -7,10 +7,12 @@ import { ProcessDiagram } from "@/components/sections/ProcessDiagram";
 import { Services } from "@/components/sections/Services";
 import { Recognitions } from "@/components/sections/Recognitions";
 import { ClientLogos } from "@/components/sections/ClientLogos";
+import { SideDecorations } from "@/components/layout/SideDecorations";
 
 const Index = () => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen relative">
+      <SideDecorations />
       <Header />
       <main>
         <Hero />

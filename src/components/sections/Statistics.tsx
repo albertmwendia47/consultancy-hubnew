@@ -1,4 +1,5 @@
 import { TrendingUp, Users, Globe, Award } from "lucide-react";
+import { ScrollAnimationWrapper } from "@/hooks/useScrollAnimation";
 
 export const Statistics = () => {
   const stats = [
@@ -30,7 +31,8 @@ export const Statistics = () => {
 
   return (
     <section className="py-20 bg-gradient-subtle relative overflow-hidden">
-      <div className="container mx-auto px-4">
+      <ScrollAnimationWrapper>
+        <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
             Driving Excellence Through
@@ -43,21 +45,20 @@ export const Statistics = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {stats.map((stat, index) => (
-            <div
-              key={index}
-              className="text-center p-8 rounded-2xl bg-card shadow-soft hover:shadow-medium transition-all duration-300 animate-fade-in"
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 text-primary rounded-full mb-6">
-                <stat.icon className="w-8 h-8" />
+            <ScrollAnimationWrapper key={index} delay={index * 100}>
+              <div className="text-center p-8 rounded-2xl bg-card shadow-soft hover:shadow-medium transition-all duration-300">
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 text-primary rounded-full mb-6">
+                  <stat.icon className="w-8 h-8" />
+                </div>
+                <h3 className="text-4xl font-bold text-primary mb-2">{stat.number}</h3>
+                <h4 className="text-xl font-semibold text-foreground mb-2">{stat.label}</h4>
+                <p className="text-muted-foreground">{stat.description}</p>
               </div>
-              <h3 className="text-4xl font-bold text-primary mb-2">{stat.number}</h3>
-              <h4 className="text-xl font-semibold text-foreground mb-2">{stat.label}</h4>
-              <p className="text-muted-foreground">{stat.description}</p>
-            </div>
+            </ScrollAnimationWrapper>
           ))}
         </div>
-      </div>
+        </div>
+      </ScrollAnimationWrapper>
 
       {/* Background decorative elements */}
       <div className="absolute top-20 right-10 w-32 h-32 bg-accent/5 rounded-full blur-3xl"></div>

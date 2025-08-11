@@ -15,11 +15,11 @@
     --popover: 0 0% 100%;
     --popover-foreground: 220 15% 20%;
 
-    /* Professional Blue Palette */
-    --primary: 220 70% 50%;
+    /* Professional Red & Blue Palette - Inspired by Arc Group */
+    --primary: 215 100% 32%;
     --primary-foreground: 0 0% 100%;
-    --primary-light: 220 60% 60%;
-    --primary-dark: 220 80% 40%;
+    --primary-light: 215 80% 45%;
+    --primary-dark: 215 100% 25%;
 
     --secondary: 210 20% 96%;
     --secondary-foreground: 220 15% 20%;
@@ -27,7 +27,7 @@
     --muted: 220 13% 95%;
     --muted-foreground: 220 10% 46%;
 
-    --accent: 280 60% 50%;
+    --accent: 354 84% 57%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
@@ -80,10 +80,10 @@
     --popover: 220 20% 10%;
     --popover-foreground: 220 15% 95%;
 
-    --primary: 220 70% 60%;
-    --primary-foreground: 220 25% 8%;
-    --primary-light: 220 60% 70%;
-    --primary-dark: 220 80% 50%;
+    --primary: 215 100% 40%;
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 215 80% 55%;
+    --primary-dark: 215 100% 30%;
 
     --secondary: 220 15% 15%;
     --secondary-foreground: 220 15% 95%;
@@ -91,7 +91,7 @@
     --muted: 220 15% 15%;
     --muted-foreground: 220 10% 65%;
 
-    --accent: 280 60% 60%;
+    --accent: 354 84% 65%;
     --accent-foreground: 220 25% 8%;
 
     --destructive: 0 75% 60%;

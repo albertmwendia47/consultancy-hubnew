@@ -101,8 +101,8 @@ export const Header = () => {
             <div className="w-10 h-10 gradient-primary rounded-lg flex items-center justify-center">
               <Briefcase className="w-6 h-6 text-primary-foreground" />
             </div>
-            <span className="text-xl font-bold text-white">
-              Strategic<span className="text-primary-light">Consult</span>
+            <span className={`text-xl font-bold ${isScrolled ? 'text-foreground' : 'text-white'} transition-smooth`}>
+              Strategic<span className="text-primary">Consult</span>
             </span>
           </button>
 
@@ -117,22 +117,61 @@ export const Header = () => {
               >
                 <button 
                   onClick={item.action}
-                  className="relative text-white hover:text-primary-light transition-smooth px-4 py-2 rounded-lg hover:bg-white/10 backdrop-blur-sm group"
+                  className={`relative ${isScrolled ? 'text-primary hover:text-primary-dark' : 'text-white hover:text-primary-light'} transition-smooth px-4 py-2 rounded-lg hover:bg-white/10 backdrop-blur-sm group`}
                 >
                   <span className="relative z-10">{item.label}</span>
                   <div className="absolute inset-0 bg-white/5 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-300"></div>
                 </button>
                 
-                {/* Hover Preview */}
+                {/* Enhanced Hover Preview */}
                 {hoveredNav === item.id && (
-                  <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-64 bg-background/95 backdrop-blur-md border border-border rounded-lg shadow-elegant p-4 z-50 animate-fade-in">
-                    <div className="flex items-start gap-3">
-                      <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-                        <item.preview.icon className="w-4 h-4 text-primary" />
+                  <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-80 bg-background/95 backdrop-blur-md border border-border rounded-lg shadow-strong p-6 z-50 animate-fade-in">
+                    <div className="space-y-4">
+                      <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 rounded-lg gradient-primary flex items-center justify-center">
+                          <item.preview.icon className="w-5 h-5 text-primary-foreground" />
+                        </div>
+                        <h3 className="text-lg font-bold text-foreground">{item.preview.title}</h3>
                       </div>
-                      <div>
-                        <h3 className="font-semibold text-foreground mb-1">{item.preview.title}</h3>
-                        <p className="text-sm text-muted-foreground">{item.preview.description}</p>
+                      <p className="text-muted-foreground leading-relaxed">{item.preview.description}</p>
+                      <div className="pt-2 border-t border-border">
+                        <div className="text-sm text-muted-foreground">
+                          {item.id === 'about' && (
+                            <div className="space-y-1">
+                              <div>• Company history & values</div>
+                              <div>• Board of directors</div>
+                              <div>• Our mission & vision</div>
+                            </div>
+                          )}
+                          {item.id === 'services' && (
+                            <div className="space-y-1">
+                              <div>• Strategic planning</div>
+                              <div>• Business transformation</div>
+                              <div>• Digital innovation</div>
+                            </div>
+                          )}
+                          {item.id === 'process' && (
+                            <div className="space-y-1">
+                              <div>• Discovery & analysis</div>
+                              <div>• Strategy development</div>
+                              <div>• Implementation support</div>
+                            </div>
+                          )}
+                          {item.id === 'careers' && (
+                            <div className="space-y-1">
+                              <div>• Open positions</div>
+                              <div>• Company culture</div>
+                              <div>• Benefits & growth</div>
+                            </div>
+                          )}
+                          {item.id === 'contact' && (
+                            <div className="space-y-1">
+                              <div>• Schedule consultation</div>
+                              <div>• Office locations</div>
+                              <div>• Contact information</div>
+                            </div>
+                          )}
+                        </div>
                       </div>
                     </div>
                   </div>

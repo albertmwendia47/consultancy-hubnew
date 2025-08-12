@@ -23,23 +23,23 @@ export const Footer = () => {
           {/* Services */}
           <div>
             <h3 className="text-lg font-semibold mb-4">Services</h3>
-            <ul className="space-y-2 text-background/70">
-              <li className="hover:text-primary-light transition-smooth cursor-pointer">Strategic Planning</li>
-              <li className="hover:text-primary-light transition-smooth cursor-pointer">Digital Transformation</li>
-              <li className="hover:text-primary-light transition-smooth cursor-pointer">Organizational Development</li>
-              <li className="hover:text-primary-light transition-smooth cursor-pointer">Risk Management</li>
-            </ul>
+             <ul className="space-y-2 text-background/70">
+               <li><a href="/services" className="hover:text-primary-light transition-smooth cursor-pointer">Strategic Planning</a></li>
+               <li><a href="/services" className="hover:text-primary-light transition-smooth cursor-pointer">Digital Transformation</a></li>
+               <li><a href="/services" className="hover:text-primary-light transition-smooth cursor-pointer">Organizational Development</a></li>
+               <li><a href="/services" className="hover:text-primary-light transition-smooth cursor-pointer">Risk Management</a></li>
+             </ul>
           </div>
 
           {/* Company */}
           <div>
             <h3 className="text-lg font-semibold mb-4">Company</h3>
-            <ul className="space-y-2 text-background/70">
-              <li className="hover:text-primary-light transition-smooth cursor-pointer">About Us</li>
-              <li className="hover:text-primary-light transition-smooth cursor-pointer">Our Team</li>
-              <li className="hover:text-primary-light transition-smooth cursor-pointer">Careers</li>
-              <li className="hover:text-primary-light transition-smooth cursor-pointer">Case Studies</li>
-            </ul>
+             <ul className="space-y-2 text-background/70">
+               <li><a href="/company" className="hover:text-primary-light transition-smooth cursor-pointer">About Us</a></li>
+               <li><a href="/company" className="hover:text-primary-light transition-smooth cursor-pointer">Our Team</a></li>
+               <li><a href="/careers" className="hover:text-primary-light transition-smooth cursor-pointer">Careers</a></li>
+               <li><a href="/company" className="hover:text-primary-light transition-smooth cursor-pointer">Case Studies</a></li>
+             </ul>
           </div>
 
           {/* Contact */}

@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import heroImage from "@/assets/hero-cityscape.jpg";
+import heroImage from "@/assets/nairobi-cityscape.jpg";
 
 export const Hero = () => {
   return (
@@ -8,23 +8,27 @@ export const Hero = () => {
       <div className="absolute inset-0 z-0">
         <img 
           src={heroImage} 
-          alt="Professional business cityscape and corporate headquarters" 
+          alt="Nairobi Kenya cityscape showing modern business district and skyscrapers" 
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/80 to-primary-dark/90"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/70 via-primary/40 to-transparent"></div>
       </div>
       
-      {/* Minimal Content */}
-      <div className="relative z-10 container mx-auto px-4 text-center">
-        <div className="max-w-3xl mx-auto animate-fade-in">
-          <h1 className="text-6xl md:text-8xl font-bold text-primary-foreground mb-8 leading-tight">
+      {/* Left-aligned Content */}
+      <div className="relative z-10 container mx-auto px-4">
+        <div className="max-w-2xl animate-fade-in">
+          <h1 className="text-5xl md:text-7xl font-bold text-white mb-8 leading-tight">
             Strategic Business
             <span className="block text-accent mt-4">
               Excellence
             </span>
           </h1>
           
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mt-12">
+          <p className="text-xl text-white/90 mb-8 max-w-lg">
+            Transforming businesses through innovative consulting solutions in Kenya and beyond.
+          </p>
+          
+          <div className="flex flex-col sm:flex-row gap-6 mt-12">
             <Button 
               variant="hero" 
               size="lg"

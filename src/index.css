@@ -15,11 +15,11 @@
     --popover: 0 0% 100%;
     --popover-foreground: 220 15% 20%;
 
-    /* Professional Red & Blue Palette - Inspired by Arc Group */
-    --primary: 215 100% 32%;
+    /* Professional Red & Blue Palette - Lighter Blue */
+    --primary: 215 85% 45%;
     --primary-foreground: 0 0% 100%;
-    --primary-light: 215 80% 45%;
-    --primary-dark: 215 100% 25%;
+    --primary-light: 215 70% 60%;
+    --primary-dark: 215 100% 35%;
 
     --secondary: 210 20% 96%;
     --secondary-foreground: 220 15% 20%;

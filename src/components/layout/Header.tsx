@@ -45,27 +45,38 @@ export const Header = () => {
           <nav className="hidden md:flex items-center gap-8">
             <button 
               onClick={() => scrollToSection('about')}
-              className="text-foreground hover:text-primary transition-smooth"
+              className="relative text-white hover:text-primary-light transition-smooth px-4 py-2 rounded-lg hover:bg-white/10 backdrop-blur-sm group"
             >
-              About
+              <span className="relative z-10">About</span>
+              <div className="absolute inset-0 bg-white/5 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-300"></div>
             </button>
             <button 
               onClick={() => scrollToSection('services')}
-              className="text-foreground hover:text-primary transition-smooth"
+              className="relative text-white hover:text-primary-light transition-smooth px-4 py-2 rounded-lg hover:bg-white/10 backdrop-blur-sm group"
             >
-              Services
+              <span className="relative z-10">Services</span>
+              <div className="absolute inset-0 bg-white/5 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-300"></div>
             </button>
             <button 
               onClick={() => scrollToSection('process')}
-              className="text-foreground hover:text-primary transition-smooth"
+              className="relative text-white hover:text-primary-light transition-smooth px-4 py-2 rounded-lg hover:bg-white/10 backdrop-blur-sm group"
             >
-              Process
+              <span className="relative z-10">Process</span>
+              <div className="absolute inset-0 bg-white/5 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-300"></div>
             </button>
+            <a 
+              href="/careers"
+              className="relative text-white hover:text-primary-light transition-smooth px-4 py-2 rounded-lg hover:bg-white/10 backdrop-blur-sm group"
+            >
+              <span className="relative z-10">Careers</span>
+              <div className="absolute inset-0 bg-white/5 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-300"></div>
+            </a>
             <button 
               onClick={() => scrollToSection('contact')}
-              className="text-foreground hover:text-primary transition-smooth"
+              className="relative text-white hover:text-primary-light transition-smooth px-4 py-2 rounded-lg hover:bg-white/10 backdrop-blur-sm group"
             >
-              Contact
+              <span className="relative z-10">Contact</span>
+              <div className="absolute inset-0 bg-white/5 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-300"></div>
             </button>
             <Button variant="gradient" size="sm">
               Get Started
@@ -74,7 +85,7 @@ export const Header = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-foreground"
+            className="md:hidden text-white"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -103,6 +114,12 @@ export const Header = () => {
               >
                 Process
               </button>
+              <a 
+                href="/careers"
+                className="text-left text-foreground hover:text-primary transition-smooth py-2"
+              >
+                Careers
+              </a>
               <button 
                 onClick={() => scrollToSection('contact')}
                 className="text-left text-foreground hover:text-primary transition-smooth py-2"

@@ -8,24 +8,6 @@ export const Statistics = () => {
       number: "150+",
       label: "Professionals",
       description: "Expert consultants worldwide"
-    },
-    {
-      icon: Globe,
-      number: "25+",
-      label: "Countries",
-      description: "Global presence and reach"
-    },
-    {
-      icon: TrendingUp,
-      number: "$2.8B",
-      label: "Transaction Value",
-      description: "Successfully completed in 2024"
-    },
-    {
-      icon: Award,
-      number: "500+",
-      label: "Projects Delivered",
-      description: "Across diverse industries"
     }
   ];
 
@@ -43,7 +25,7 @@ export const Statistics = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 gap-8 max-w-md mx-auto">
           {stats.map((stat, index) => (
             <ScrollAnimationWrapper key={index} delay={index * 100}>
               <div className="text-center p-8 rounded-2xl bg-card shadow-soft hover:shadow-medium transition-all duration-300">

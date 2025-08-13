@@ -38,9 +38,17 @@ export const Header = () => {
       label: 'About', 
       action: () => scrollToSection('about'),
       preview: {
-        title: 'About Us',
-        description: 'Learn about our company history, values, and commitment to excellence.',
-        icon: Building
+        title: 'About ZenInsight Group',
+        description: 'ZenInsight Group LTD is a pioneering Kenyan consultancy dedicated to advancing sustainable development across Africa through integrated digital solutions, rigorous monitoring & evaluation (M&E), and transformative sectoral research.',
+        icon: Building,
+        content: [
+          'Company History & Mission: Founded to drive sustainable development across Africa',
+          'Board of Directors: Distinguished leadership team with decades of experience',
+          'Our Vision: To be the globally recognized leader in strategic consultancy in Africa',
+          'Core Values: Innovation, Excellence, Sustainability, and Impact',
+          'Experience: Over two decades of combined expertise in consultancy services',
+          'Global Reach: Serving clients across 25+ countries with local expertise'
+        ]
       }
     },
     { 
@@ -48,9 +56,17 @@ export const Header = () => {
       label: 'Services', 
       action: () => scrollToSection('services'),
       preview: {
-        title: 'Our Services',
-        description: 'Comprehensive consulting solutions tailored to your business needs.',
-        icon: Cog
+        title: 'Our Comprehensive Services',
+        description: 'We offer integrated solutions spanning digital innovation, monitoring & evaluation, and sectoral research to drive sustainable development.',
+        icon: Cog,
+        content: [
+          'Digital Solutions: Cutting-edge digital transformation and innovation services',
+          'Monitoring & Evaluation: Rigorous M&E frameworks for project success measurement',
+          'Sectoral Research: Transformative research across key development sectors',
+          'Strategic Planning: Comprehensive business strategy and transformation consulting',
+          'Capacity Building: Training and development programs for organizations',
+          'Project Management: End-to-end project delivery and implementation support'
+        ]
       }
     },
     { 
@@ -58,9 +74,35 @@ export const Header = () => {
       label: 'Process', 
       action: () => scrollToSection('process'),
       preview: {
-        title: 'Our Process',
-        description: 'Discover our proven methodology for delivering successful outcomes.',
-        icon: FileText
+        title: 'Our Proven Methodology',
+        description: 'Our systematic approach ensures successful project delivery through structured phases and continuous stakeholder engagement.',
+        icon: FileText,
+        content: [
+          'Discovery & Analysis: Comprehensive assessment of current state and requirements',
+          'Strategy Development: Collaborative strategy formulation with stakeholders',
+          'Implementation Planning: Detailed roadmaps and resource allocation',
+          'Execution & Monitoring: Active project management with continuous oversight',
+          'Evaluation & Learning: Impact assessment and knowledge capture',
+          'Sustainability Planning: Long-term sustainability and capacity transfer'
+        ]
+      }
+    },
+    { 
+      id: 'news', 
+      label: 'News', 
+      action: () => handleNavigation('/news'),
+      preview: {
+        title: 'Latest News & Updates',
+        description: 'Stay informed about our latest developments, partnerships, research findings, and insights on sustainable development.',
+        icon: FileText,
+        content: [
+          'Company Announcements: Latest organizational developments and milestones',
+          'Partnership News: New collaborations and strategic alliances',
+          'Research Publications: Groundbreaking research and policy insights',
+          'Awards & Recognition: Industry recognition and achievements',
+          'Thought Leadership: Expert insights on development challenges and solutions',
+          'Event Updates: Upcoming conferences, workshops, and speaking engagements'
+        ]
       }
     },
     { 
@@ -68,9 +110,17 @@ export const Header = () => {
       label: 'Careers', 
       action: () => handleNavigation('/careers'),
       preview: {
-        title: 'Join Our Team',
-        description: 'Explore exciting career opportunities and grow with our company.',
-        icon: Users
+        title: 'Join Our Impact-Driven Team',
+        description: 'Explore exciting career opportunities where you can make a meaningful difference in sustainable development across Africa.',
+        icon: Users,
+        content: [
+          'Open Positions: Current job opportunities across various departments',
+          'Company Culture: Collaborative, innovative, and impact-focused environment',
+          'Benefits & Growth: Competitive compensation and professional development',
+          'Remote Work: Flexible working arrangements and global collaboration',
+          'Learning Opportunities: Continuous skill development and training programs',
+          'Impact Focus: Contribute to meaningful sustainable development projects'
+        ]
       }
     },
     { 
@@ -78,9 +128,17 @@ export const Header = () => {
       label: 'Contact', 
       action: () => scrollToSection('contact'),
       preview: {
-        title: 'Get In Touch',
-        description: 'Ready to start your transformation? Contact us today.',
-        icon: Briefcase
+        title: 'Get In Touch With Us',
+        description: 'Ready to start your transformation journey? Contact our team to discuss how we can support your sustainable development goals.',
+        icon: Briefcase,
+        content: [
+          'Schedule Consultation: Free initial consultation to discuss your needs',
+          'Office Locations: Multiple offices across East Africa for local support',
+          'Contact Information: Phone, email, and address details for each location',
+          'Response Time: Typically respond within 24 hours to all inquiries',
+          'Project Inquiry: Detailed project scoping and proposal development',
+          'Partnership Opportunities: Explore collaboration and partnership possibilities'
+        ]
       }
     }
   ];
@@ -125,7 +183,7 @@ export const Header = () => {
                 
                 {/* Enhanced Hover Preview */}
                 {hoveredNav === item.id && (
-                  <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-80 bg-background/95 backdrop-blur-md border border-border rounded-lg shadow-strong p-6 z-50 animate-fade-in">
+                  <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-96 bg-background/95 backdrop-blur-md border border-border rounded-lg shadow-strong p-6 z-50 animate-fade-in">
                     <div className="space-y-4">
                       <div className="flex items-center gap-3">
                         <div className="w-10 h-10 rounded-lg gradient-primary flex items-center justify-center">
@@ -133,44 +191,15 @@ export const Header = () => {
                         </div>
                         <h3 className="text-lg font-bold text-foreground">{item.preview.title}</h3>
                       </div>
-                      <p className="text-muted-foreground leading-relaxed">{item.preview.description}</p>
+                      <p className="text-muted-foreground leading-relaxed text-sm">{item.preview.description}</p>
                       <div className="pt-2 border-t border-border">
-                        <div className="text-sm text-muted-foreground">
-                          {item.id === 'about' && (
-                            <div className="space-y-1">
-                              <div>• Company history & values</div>
-                              <div>• Board of directors</div>
-                              <div>• Our mission & vision</div>
+                        <div className="text-sm text-muted-foreground space-y-2">
+                          {item.preview.content?.map((contentItem, index) => (
+                            <div key={index} className="flex items-start gap-2">
+                              <div className="w-1 h-1 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                              <span>{contentItem}</span>
                             </div>
-                          )}
-                          {item.id === 'services' && (
-                            <div className="space-y-1">
-                              <div>• Strategic planning</div>
-                              <div>• Business transformation</div>
-                              <div>• Digital innovation</div>
-                            </div>
-                          )}
-                          {item.id === 'process' && (
-                            <div className="space-y-1">
-                              <div>• Discovery & analysis</div>
-                              <div>• Strategy development</div>
-                              <div>• Implementation support</div>
-                            </div>
-                          )}
-                          {item.id === 'careers' && (
-                            <div className="space-y-1">
-                              <div>• Open positions</div>
-                              <div>• Company culture</div>
-                              <div>• Benefits & growth</div>
-                            </div>
-                          )}
-                          {item.id === 'contact' && (
-                            <div className="space-y-1">
-                              <div>• Schedule consultation</div>
-                              <div>• Office locations</div>
-                              <div>• Contact information</div>
-                            </div>
-                          )}
+                          ))}
                         </div>
                       </div>
                     </div>
@@ -214,12 +243,18 @@ export const Header = () => {
               >
                 Process
               </button>
-              <a 
-                href="/careers"
+              <button 
+                onClick={() => handleNavigation('/careers')}
                 className="text-left text-foreground hover:text-primary transition-smooth py-2"
               >
                 Careers
-              </a>
+              </button>
+              <button 
+                onClick={() => handleNavigation('/news')}
+                className="text-left text-foreground hover:text-primary transition-smooth py-2"
+              >
+                News
+              </button>
               <button 
                 onClick={() => scrollToSection('contact')}
                 className="text-left text-foreground hover:text-primary transition-smooth py-2"

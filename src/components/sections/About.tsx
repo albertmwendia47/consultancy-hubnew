@@ -4,18 +4,48 @@ import { ScrollAnimationWrapper } from "@/hooks/useScrollAnimation";
 
 export const About = () => {
   const boardMembers = [
-    { name: "Sarah Johnson", role: "Chairman", icon: Crown },
-    { name: "Michael Chen", role: "CEO", icon: User },
-    { name: "Elena Rodriguez", role: "CFO", icon: Shield },
-    { name: "James Thompson", role: "CTO", icon: Layers },
-    { name: "Priya Patel", role: "COO", icon: Briefcase },
-    { name: "David Wilson", role: "CMO", icon: Award },
-    { name: "Lisa Zhang", role: "Director of Strategy", icon: Target },
-    { name: "Robert Miller", role: "Director of Operations", icon: Users },
-    { name: "Anna Kowalski", role: "Director of Innovation", icon: TrendingUp },
-    { name: "Kevin O'Brien", role: "Director of Finance", icon: Shield },
-    { name: "Fatima Al-Rashid", role: "Director of HR", icon: Users },
-    { name: "Thomas Anderson", role: "Director of Technology", icon: Layers }
+    { 
+      name: "Dr. Sarah Johnson", 
+      role: "Chairman", 
+      icon: Crown,
+      photo: "https://images.unsplash.com/photo-1494790108755-2616b612b77c?w=150&h=150&fit=crop&crop=face",
+      summary: "Former UN Development Programme Director with 25+ years in sustainable development across Africa."
+    },
+    { 
+      name: "Michael Chen", 
+      role: "Chief Executive Officer", 
+      icon: User,
+      photo: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
+      summary: "Strategic leader with extensive experience in digital transformation and organizational growth."
+    },
+    { 
+      name: "Dr. Elena Rodriguez", 
+      role: "Chief Financial Officer", 
+      icon: Shield,
+      photo: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face",
+      summary: "Financial expert specializing in impact investing and sustainable business models in emerging markets."
+    },
+    { 
+      name: "James Thompson", 
+      role: "Chief Technology Officer", 
+      icon: Layers,
+      photo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
+      summary: "Technology innovator leading digital solutions for development challenges across the continent."
+    },
+    { 
+      name: "Priya Patel", 
+      role: "Chief Operations Officer", 
+      icon: Briefcase,
+      photo: "https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?w=150&h=150&fit=crop&crop=face",
+      summary: "Operations specialist with proven track record in scaling consultancy services and project delivery."
+    },
+    { 
+      name: "Dr. David Wilson", 
+      role: "Director of Research", 
+      icon: Award,
+      photo: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=150&h=150&fit=crop&crop=face",
+      summary: "Research leader and policy expert focusing on evidence-based solutions for sustainable development."
+    }
   ];
 
   return (
@@ -88,16 +118,24 @@ export const About = () => {
               </div>
             </ScrollAnimationWrapper>
             
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {boardMembers.map((member, index) => (
                 <ScrollAnimationWrapper key={member.name} delay={index * 100}>
                   <Card className="text-center shadow-medium hover:shadow-strong transition-smooth group">
                     <CardContent className="p-6">
-                      <div className="w-16 h-16 gradient-primary rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-bounce">
-                        <member.icon className="w-8 h-8 text-primary-foreground" />
+                      <div className="relative w-24 h-24 mx-auto mb-4">
+                        <img 
+                          src={member.photo} 
+                          alt={member.name}
+                          className="w-full h-full rounded-full object-cover shadow-medium group-hover:shadow-strong transition-smooth"
+                        />
+                        <div className="absolute -bottom-2 -right-2 w-8 h-8 gradient-primary rounded-full flex items-center justify-center shadow-medium">
+                          <member.icon className="w-4 h-4 text-primary-foreground" />
+                        </div>
                       </div>
-                      <h4 className="font-semibold text-foreground mb-2">{member.name}</h4>
-                      <p className="text-sm text-muted-foreground">{member.role}</p>
+                      <h4 className="font-bold text-foreground mb-2 text-lg">{member.name}</h4>
+                      <p className="text-sm text-primary font-medium mb-3">{member.role}</p>
+                      <p className="text-sm text-muted-foreground leading-relaxed">{member.summary}</p>
                     </CardContent>
                   </Card>
                 </ScrollAnimationWrapper>

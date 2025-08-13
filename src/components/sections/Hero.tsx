@@ -18,14 +18,14 @@ export const Hero = () => {
       <div className="relative z-10 container mx-auto px-4">
         <div className="max-w-2xl animate-fade-in">
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-8 leading-tight">
-            Strategic Business
-            <span className="block text-accent mt-4">
-              Excellence
+            ZenInsight
+            <span className="block text-accent mt-4 ">
+              Group
             </span>
           </h1>
           
           <p className="text-xl text-white/90 mb-8 max-w-lg">
-            Transforming businesses through innovative consulting solutions in Kenya and beyond.
+            ZenInsight group LTD is a pioneering Kenyan consultancy dedicated to advancing sustainable development across Africa through integrated digital solutions, rigorous monitoring & evaluation (M&E), and transformative sectoral research.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-6 mt-12">

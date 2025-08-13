@@ -102,7 +102,7 @@ export const Header = () => {
               <Briefcase className="w-6 h-6 text-primary-foreground" />
             </div>
             <span className={`text-xl font-bold ${isScrolled ? 'text-foreground' : 'text-white'} transition-smooth`}>
-              Strategic<span className="text-primary">Consult</span>
+              ZenInsight<span className="text-primary">Group</span>
             </span>
           </button>
 

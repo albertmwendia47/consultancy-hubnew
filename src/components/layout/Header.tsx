@@ -15,7 +15,7 @@ export const Header = () => {
       setIsScrolled(window.scrollY > 50);
 
       // Update active section based on scroll position
-      const sections = ['home', 'about', 'process', 'services', 'careers'];
+      const sections = ['home', 'about', 'process', 'services', 'careers', 'news', 'contact'];
       const scrollPosition = window.scrollY + 100;
 
       sections.forEach((section) => {
@@ -125,7 +125,7 @@ export const Header = () => {
     { 
       id: 'news', 
       label: 'News', 
-      action: () => handleNavigation('/news'),
+      action: () => scrollToSection('news'),
       preview: {
         title: 'Latest News & Updates',
         description: 'Stay informed about our latest developments, partnerships, research findings, and insights on sustainable development.',
@@ -538,7 +538,7 @@ export const Header = () => {
                 Careers
               </button>
               <button 
-                onClick={() => handleNavigation('/news')}
+                onClick={() => scrollToSection('news')}
                 className="text-left text-foreground hover:text-primary transition-smooth py-2"
               >
                 News

@@ -5,8 +5,8 @@ import { About } from "@/components/sections/About";
 import { Statistics } from "@/components/sections/Statistics";
 import { ProcessDiagram } from "@/components/sections/ProcessDiagram";
 import { Services } from "@/components/sections/Services";
-import { ClientLogos } from "@/components/sections/ClientLogos";
 import { CareersSection } from "@/components/sections/CareersSection";
+import { NewsSection } from "@/components/sections/NewsSection";
 import { ContactSection } from "@/components/sections/ContactSection";
 import { SideDecorations } from "@/components/layout/SideDecorations";
 
@@ -29,8 +29,8 @@ const Index = () => {
         <div id="services">
           <Services />
         </div>
-        <ClientLogos />
         <CareersSection />
+        <NewsSection />
         <ContactSection />
       </main>
       <Footer />

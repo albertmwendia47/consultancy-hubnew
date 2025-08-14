@@ -5,8 +5,9 @@ import { About } from "@/components/sections/About";
 import { Statistics } from "@/components/sections/Statistics";
 import { ProcessDiagram } from "@/components/sections/ProcessDiagram";
 import { Services } from "@/components/sections/Services";
-import { Recognitions } from "@/components/sections/Recognitions";
 import { ClientLogos } from "@/components/sections/ClientLogos";
+import { CareersSection } from "@/components/sections/CareersSection";
+import { ContactSection } from "@/components/sections/ContactSection";
 import { SideDecorations } from "@/components/layout/SideDecorations";
 
 const Index = () => {
@@ -15,15 +16,22 @@ const Index = () => {
       <SideDecorations />
       <Header />
       <main>
-        <Hero />
+        <div id="home">
+          <Hero />
+        </div>
         <Statistics />
-        <About />
+        <div id="about">
+          <About />
+        </div>
         <div id="process">
           <ProcessDiagram />
         </div>
-        <Services />
-        <Recognitions />
+        <div id="services">
+          <Services />
+        </div>
         <ClientLogos />
+        <CareersSection />
+        <ContactSection />
       </main>
       <Footer />
     </div>

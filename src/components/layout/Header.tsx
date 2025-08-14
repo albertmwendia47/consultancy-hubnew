@@ -7,11 +7,28 @@ export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [hoveredNav, setHoveredNav] = useState<string | null>(null);
+  const [activeSection, setActiveSection] = useState<string>('home');
   const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
+
+      // Update active section based on scroll position
+      const sections = ['home', 'about', 'process', 'services', 'careers'];
+      const scrollPosition = window.scrollY + 100;
+
+      sections.forEach((section) => {
+        const element = document.getElementById(section);
+        if (element) {
+          const elementTop = element.offsetTop;
+          const elementBottom = elementTop + element.offsetHeight;
+          
+          if (scrollPosition >= elementTop && scrollPosition < elementBottom) {
+            setActiveSection(section);
+          }
+        }
+      });
     };
     
     window.addEventListener('scroll', handleScroll);
@@ -52,24 +69,6 @@ export const Header = () => {
       }
     },
     { 
-      id: 'services', 
-      label: 'Services', 
-      action: () => scrollToSection('services'),
-      preview: {
-        title: 'Our Comprehensive Services',
-        description: 'We offer integrated solutions spanning digital innovation, monitoring & evaluation, and sectoral research to drive sustainable development.',
-        icon: Cog,
-        content: [
-          'Digital Solutions: Cutting-edge digital transformation and innovation services',
-          'Monitoring & Evaluation: Rigorous M&E frameworks for project success measurement',
-          'Sectoral Research: Transformative research across key development sectors',
-          'Strategic Planning: Comprehensive business strategy and transformation consulting',
-          'Capacity Building: Training and development programs for organizations',
-          'Project Management: End-to-end project delivery and implementation support'
-        ]
-      }
-    },
-    { 
       id: 'process', 
       label: 'Process', 
       action: () => scrollToSection('process'),
@@ -88,6 +87,42 @@ export const Header = () => {
       }
     },
     { 
+      id: 'services', 
+      label: 'Services', 
+      action: () => scrollToSection('services'),
+      preview: {
+        title: 'Our Comprehensive Services',
+        description: 'We offer integrated solutions spanning digital innovation, monitoring & evaluation, and sectoral research to drive sustainable development.',
+        icon: Cog,
+        content: [
+          'Digital Solutions: Cutting-edge digital transformation and innovation services',
+          'Monitoring & Evaluation: Rigorous M&E frameworks for project success measurement',
+          'Sectoral Research: Transformative research across key development sectors',
+          'Strategic Planning: Comprehensive business strategy and transformation consulting',
+          'Capacity Building: Training and development programs for organizations',
+          'Project Management: End-to-end project delivery and implementation support'
+        ]
+      }
+    },
+    { 
+      id: 'careers', 
+      label: 'Careers', 
+      action: () => scrollToSection('careers'),
+      preview: {
+        title: 'Join Our Impact-Driven Team',
+        description: 'Explore exciting career opportunities where you can make a meaningful difference in sustainable development across Africa.',
+        icon: Users,
+        content: [
+          'Open Positions: Current job opportunities across various departments',
+          'Company Culture: Collaborative, innovative, and impact-focused environment',
+          'Benefits & Growth: Competitive compensation and professional development',
+          'Remote Work: Flexible working arrangements and global collaboration',
+          'Learning Opportunities: Continuous skill development and training programs',
+          'Impact Focus: Contribute to meaningful sustainable development projects'
+        ]
+      }
+    },
+    { 
       id: 'news', 
       label: 'News', 
       action: () => handleNavigation('/news'),
@@ -102,24 +137,6 @@ export const Header = () => {
           'Awards & Recognition: Industry recognition and achievements',
           'Thought Leadership: Expert insights on development challenges and solutions',
           'Event Updates: Upcoming conferences, workshops, and speaking engagements'
-        ]
-      }
-    },
-    { 
-      id: 'careers', 
-      label: 'Careers', 
-      action: () => handleNavigation('/careers'),
-      preview: {
-        title: 'Join Our Impact-Driven Team',
-        description: 'Explore exciting career opportunities where you can make a meaningful difference in sustainable development across Africa.',
-        icon: Users,
-        content: [
-          'Open Positions: Current job opportunities across various departments',
-          'Company Culture: Collaborative, innovative, and impact-focused environment',
-          'Benefits & Growth: Competitive compensation and professional development',
-          'Remote Work: Flexible working arrangements and global collaboration',
-          'Learning Opportunities: Continuous skill development and training programs',
-          'Impact Focus: Contribute to meaningful sustainable development projects'
         ]
       }
     },
@@ -175,10 +192,14 @@ export const Header = () => {
               >
                 <button 
                   onClick={item.action}
-                  className={`relative ${isScrolled ? 'text-primary hover:text-primary-dark' : 'text-white hover:text-primary-light'} transition-smooth px-4 py-2 rounded-lg hover:bg-white/10 backdrop-blur-sm group`}
+                  className={`relative ${
+                    activeSection === item.id 
+                      ? (isScrolled ? 'text-primary bg-primary/10' : 'text-white bg-white/20') 
+                      : (isScrolled ? 'text-muted-foreground hover:text-primary' : 'text-white/80 hover:text-white')
+                  } transition-smooth px-4 py-2 rounded-lg hover:bg-white backdrop-blur-sm group`}
                 >
                   <span className="relative z-10">{item.label}</span>
-                  <div className="absolute inset-0 bg-white/5 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-300"></div>
+                  <div className="absolute inset-0 bg-white/10 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-300"></div>
                 </button>
                 
                 {/* Full Page Content Preview */}
@@ -511,7 +532,7 @@ export const Header = () => {
                 Process
               </button>
               <button 
-                onClick={() => handleNavigation('/careers')}
+                onClick={() => scrollToSection('careers')}
                 className="text-left text-foreground hover:text-primary transition-smooth py-2"
               >
                 Careers
